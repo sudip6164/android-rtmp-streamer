@@ -1,0 +1,38 @@
+# Built files
+*.apk
+*.aab
+*.aar
+*.dex
+*.class
+build/
+app/build/
+
+# Gradle
+.gradle/
+gradle-app.setting
+!gradle-wrapper.jar
+local.properties
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# Signing keys and secrets: never commit these
+*.keystore
+*.jks
+*.p12
+*.pem
+*.key
+keystore.properties
+*.env
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log

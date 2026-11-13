@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Stream your games to YouTube Live, or any RTMP server"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="#222222"
+            android:padding="12dp"
+            android:text="Status: not live"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/tvStats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Bitrate: 0 kbps" />
+
+        <Button
+            android:id="@+id/btnLive"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Go live" />
+
+        <Button
+            android:id="@+id/btnRecordOnly"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Record screen only, no stream" />
+
+        <Button
+            android:id="@+id/btnMute"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Mute microphone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Destination"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnYtSecure"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="YouTube secure" />
+
+            <Button
+                android:id="@+id/btnYtPlain"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:text="YouTube RTMP" />
+
+            <Button
+                android:id="@+id/btnYtBackup"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:text="YT backup" />
+        </LinearLayout>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="Server URL" android:textSize="13sp" />
+
+        <EditText android:id="@+id/etServerUrl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textUri"
+                android:singleLine="true" />
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="Stream key, from YouTube Studio" android:textSize="13sp" />
+
+        <EditText android:id="@+id/etStreamKey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:singleLine="true" />
+
+        <CheckBox
+            android:id="@+id/cbShowKey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show stream key" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Keep your stream key private. Anyone with it can stream to your channel."
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Quality"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spinnerPreset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="Video bitrate in kbps, blank uses the preset" android:textSize="13sp" />
+
+        <EditText android:id="@+id/etBitrate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:singleLine="true" />
+
+        <Switch
+            android:id="@+id/switchAdaptive"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Adaptive bitrate, lower quality instead of dropping the stream" />
+
+        <Switch
+            android:id="@+id/switchReconnect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Auto reconnect up to 5 times if the connection drops" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Stream orientation"
+            android:textSize="14sp" />
+
+        <RadioGroup
+            android:id="@+id/radioOrientation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp">
+
+            <RadioButton
+                android:id="@+id/rbLandscape"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Landscape, for games, fills a PC screen" />
+
+            <RadioButton
+                android:id="@+id/rbPortrait"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Portrait, for vertical streams" />
+
+            <RadioButton
+                android:id="@+id/rbAutoOrientation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Auto, follow how the phone is held at start" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Audio"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/radioAudio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <RadioButton
+                android:id="@+id/rbMix"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Game audio plus my microphone, Android 10 and up" />
+
+            <RadioButton
+                android:id="@+id/rbInternal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Game audio only, Android 10 and up" />
+
+            <RadioButton
+                android:id="@+id/rbMic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Microphone only" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Extras"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Switch
+            android:id="@+id/switchRecord"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Also save an MP4 copy on this phone while streaming" />
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="Overlay text on the stream, for example your channel name" android:textSize="13sp" />
+
+        <EditText android:id="@+id/etOverlay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true" />
+
+        <Switch
+            android:id="@+id/switchOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Show overlay text, top left of the stream" />
+
+        <TextView
+            android:id="@+id/tvRecordPath"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="How to go live: YouTube Studio, Create, Go live, Stream tab. Copy the stream URL and key into this app, tap Go live here, allow screen capture, then open your game. Stop from this app or from the notification."
+            android:textSize="13sp" />
+
+    </LinearLayout>
+</ScrollView>
